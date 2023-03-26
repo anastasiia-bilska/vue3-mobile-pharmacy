@@ -1,11 +1,17 @@
 <script lang="ts">
+import { useShoppingCartStore } from '@/stores/cart';
+
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  setup() {
+    const cartStore = useShoppingCartStore();
+    return { cartStore }
+  }
 }
 </script>
 
 <template>
-  <header class="header container">
+  <header class="header page__header">
     <img src="../../assets/static/logo.svg" alt="Логотип компанії Хапай" class="header__logo" />
 
     <form class="header__form">
@@ -21,7 +27,9 @@ export default {
     </form>
 
     <button type="button" class="header__cart-button" aria-label="Натисніть, щоб відкрити кошик">
-      <div class="header__icon header__icon--cart"></div>
+      <div class="header__icon header__icon--cart">
+      </div>
+      <div v-show="cartStore.items.length" class="header__cart-counter">{{ cartStore.items.length }}</div>
     </button>
   </header>
 </template>

@@ -1,0 +1,29 @@
+@import '../../assets/sassStyles/colors';
+@import '../../assets/sassStyles/mixins';
+
+.hubber {
+  display: flex;
+  align-items: center;
+  background-color: $color__main;
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  &__logo {
+    width: 56px;
+
+    @include onBigger {
+      width: 82px;
+    }
+  }
+
+  &__link {
+    margin-right: 10px;
+    display: block;
+  }
+
+  &__info {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 120%;
+  }
+}

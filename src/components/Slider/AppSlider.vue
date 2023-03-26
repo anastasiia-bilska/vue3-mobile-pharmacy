@@ -37,6 +37,9 @@ export default {
       } else {
         this.activeSlide = this.slides.length - 1
       }
+    },
+    changeSlide(wantedSlide: number) {
+      this.activeSlide = wantedSlide;
     }
   },
   mounted() {
@@ -69,20 +72,21 @@ export default {
 </script>
 
 <template>
-  <div class="slider">
-    <div class="slider__header">
-      <h1>Найчастіше купують</h1>
+  <div class="slider page__slider">
+    <div class="slider__header container">
+      <h1 class="slider__title">Найчастіше купують</h1>
 
       <div class="slider__buttons">
         <button class="slider__button" @click="moveBack">
-          <div class="slider__icon slider__icon--left">{{ '<' }}</div>
+          <div class="slider__icon slider__icon--left"></div>
         </button>
 
         <button class="slider__button" @click="moveForward">
-          <div class="slider__icon slider__icon--right">{{ '>' }}</div>
+          <div class="slider__icon slider__icon--right"></div>
         </button>
       </div>
     </div>
+
     <div class="container">
       <div class="slider__slides" ref="slides">
         <div
@@ -90,13 +94,23 @@ export default {
           :key="index"
           class="slider__slide"
           :class="{ 'slider__slide--active': activeSlide === index }"
-          :style="{ transform: `translateX(calc(-${activeSlide} * (100% + 8px)))` }"
+          :style="{ transform: `translateX(calc(-${activeSlide} * (100% + 16px)))` }"
         >
           <div class="slider__item" v-for="product in slide" :key="product.id">
             <SliderCardVue :product="product" />
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="slider__dots">
+      <button
+        v-for="(slide, index) in slides" :key="index"
+        class="slider__dot"
+        :class="{'slider__dot--active': index === activeSlide }"
+        @click="changeSlide(index)"
+      >
+      </button>
     </div>
   </div>
 </template>

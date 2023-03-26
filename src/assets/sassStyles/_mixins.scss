@@ -1,0 +1,5 @@
+@mixin onBigger {
+  @media (min-height: 800px) {
+    @content;
+  }
+}

@@ -1,4 +1,6 @@
 <script lang="ts">
+import { shoppingCartStorage } from '@/storage/storage'
+import { useShoppingCartStore } from '@/stores/cart'
 import type { Product } from '@/types/Product'
 
 export default {
@@ -7,6 +9,28 @@ export default {
     product: {
       type: Object as () => Product,
       default: () => ({})
+    }
+  },
+  setup() {
+    const cartStore = useShoppingCartStore()
+
+    shoppingCartStorage.value = cartStore.items
+
+    const addToCart = (product: Product) => {
+      cartStore.addItem(product)
+      shoppingCartStorage.value = cartStore.items
+    }
+
+    const removeFromCart = (product: Product) => {
+      cartStore.removeItem(product)
+      shoppingCartStorage.value = cartStore.items
+    }
+
+    return { addToCart, removeFromCart }
+  },
+  computed: {
+    isInLocalStorage() {
+      return shoppingCartStorage.value.some((item) => item.id === this.product.id)
     }
   }
 }
@@ -37,8 +61,12 @@ export default {
           </p>
         </div>
 
-        <button class="card__to-cart-button">
-          <div class="card__cart-icon"></div>
+        <button v-if="!isInLocalStorage" class="card__to-cart-button" @click="addToCart(product)">
+          <div class="card__cart-icon card__cart-icon--add"></div>
+        </button>
+
+        <button v-else class="card__to-cart-button" @click="removeFromCart(product)">
+          <div class="card__cart-icon card__cart-icon--remove"></div>
         </button>
       </div>
 

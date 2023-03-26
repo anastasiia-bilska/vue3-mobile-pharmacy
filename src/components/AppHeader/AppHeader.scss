@@ -6,6 +6,7 @@
   align-items: center;
   gap: 10px;
 
+  padding: 0 16px;
   height: 60px;
   min-width: 318px;
 
@@ -34,7 +35,6 @@
 
     transition: border 0.2s ease-in-out;
 
-    
     &:focus {
       border: 2px solid $color__background;
     }
@@ -71,6 +71,7 @@
   }
 
   &__cart-button {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,5 +81,26 @@
 
     background-color: $color__background;
     border-radius: 50%;
+  }
+
+  &__cart-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 75%;
+
+    width: 20px;
+    height: 20px;
+
+    color: $color__primary;
+    font-weight: 700;
+    font-size: 14px;
+
+    background: $color__info;
+    border: 2px solid $color__main;
+    border-radius: 10px;
   }
 }
