@@ -1,16 +1,19 @@
 <script lang="ts">
-import AppHeader from './components/AppHeader/AppHeader.vue';
+import AppHeader from './components/AppHeader/AppHeader.vue'
+import AppSlider from './components/Slider/AppSlider.vue'
 
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    AppSlider
   }
 }
 </script>
 
 <template>
   <AppHeader />
-  <main class="">
+  <main class="container">
+    <AppSlider />
   </main>
   <AppFooter />
 </template>

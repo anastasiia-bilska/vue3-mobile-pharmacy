@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/1041158_DUCpCCQc_20220217_121632.medium.webp",
+    "name": "Цитрамон-Дарниця таблетки №10",
+    "producer": "Дарниця ФФ ПрАТ",
+    "price": 27.2,
+    "salePrice": null,
+    "isInStock": true
+  },
+  {
+    "id": 2,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/606_VSdvEtLD_20220223_145248.webp",
+    "name": "Бепантен мазь 5 % туба 30 г",
+    "producer": "Байєр",
+    "price": 267.9,
+    "salePrice": 227.7,
+    "isInStock": true
+  },
+  {
+    "id": 3,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/5598_AVv02fK9_20220223_150009.medium.webp",
+    "name": "Елевіт Пронаталь таблетки вкриті плівковою оболонкою блістер №100",
+    "producer": "Байєр",
+    "price": 1139.4,
+    "salePrice": null,
+    "isInStock": true
+  },
+  {
+    "id": 4,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/4193_o9fZJKWc_20220223_145634.medium.webp",
+    "name": "Реліф Адванс супозиторії ректальні №12",
+    "producer": "Байєр",
+    "price": 386.0,
+    "salePrice": 328.1 ,
+    "isInStock": true
+  },
+  {
+    "id": 5,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/27890_8Gx4RhvH_20210914_151140.medium.webp",
+    "name": "Ренні з апельсиновим смаком таблетки жувальні №24",
+    "producer": "Байєр",
+    "price": 179.4,
+    "salePrice": null,
+    "isInStock": true
+  },
+  {
+    "id": 6,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2z/20210708-IMG_6657.medium.webp",
+    "name": "Вітамін А+Е Здоров'я капсули м'які 100000 МО + 100 мг блістер №50",
+    "producer": "Здоров'я ФК ТОВ",
+    "price": 100.0,
+    "salePrice": null,
+    "isInStock": false
+  },
+  {
+    "id": 7,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/25683_u7Sa7CAd_20221026_120430.medium.webp",
+    "name": "Магнікум таблетки вкриті плівковою оболонкою кишково-розчинною блістер №50",
+    "producer": "Київський вітамінний завод АТ",
+    "price": 195.9,
+    "salePrice": 176.3,
+    "isInStock": true
+  },
+  {
+    "id": 8,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/13790_5U38atsm_20210312_084944.medium.webp",
+    "name": "Терафлекс капсули флакон №120",
+    "producer": "Байєр",
+    "price": 829.7,
+    "salePrice": null,
+    "isInStock": true
+  },
+  {
+    "id": 9,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/1061710_gN9onDnB_20220804_125504.medium.webp",
+    "name": "Біотин-КВ таблетки 5 мг №30",
+    "producer": "Київський вітамінний завод АТ",
+    "price": 159.0,
+    "salePrice": 143.1,
+    "isInStock": true
+  },
+  {
+    "id": 10,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2z/1063233.medium.webp",
+    "name": "Діазолін табл. 50 мг №20",
+    "producer": "NOW FOODS",
+    "price": 416.0,
+    "salePrice": null,
+    "isInStock": false
+  },
+  {
+    "id": 11,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2z/1046109.medium.webp",
+    "name": "Гіалуронова кислота б'юті капсули 140 мг №30",
+    "producer": "ДЗ ДНЦЛЗ ТОВ",
+    "price": 439.0,
+    "salePrice": null,
+    "isInStock": false
+  },
+  {
+    "id": 12,
+    "image": "https://storage.googleapis.com/static-storage/products/images/v2/20191003-IMG_0417.medium.webp",
+    "name": "Магне-В6 таблетки вкриті оболонкою блістер №50",
+    "producer": "Санофі",
+    "price": 108.0,
+    "salePrice": null,
+    "isInStock": false
+  }
+]

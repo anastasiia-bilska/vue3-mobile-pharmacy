@@ -1,23 +1,15 @@
 <script lang="ts">
-  export default {
-    name: 'AppHeader',
-  }
+export default {
+  name: 'AppHeader'
+}
 </script>
 
 <template>
   <header class="header container">
-    <img
-      src="../../assets/static/logo.svg"
-      alt="Логотип компанії Хапай"
-      class="header__logo"
-    >
+    <img src="../../assets/static/logo.svg" alt="Логотип компанії Хапай" class="header__logo" />
 
     <form class="header__form">
-      <input
-        class="header__search-bar"
-        type="text"
-        placeholder="Пошук"
-      >
+      <input class="header__search-bar" type="text" placeholder="Пошук" />
 
       <button
         type="submit"
@@ -28,16 +20,12 @@
       </button>
     </form>
 
-    <button
-      type="button"
-      class="header__cart-button"
-      aria-label="Натисніть, щоб відкрити кошик"
-    >
+    <button type="button" class="header__cart-button" aria-label="Натисніть, щоб відкрити кошик">
       <div class="header__icon header__icon--cart"></div>
     </button>
   </header>
 </template>
 
 <style lang="scss">
-  @import './AppHeader.scss';
+@import './AppHeader.scss';
 </style>
