@@ -12,31 +12,57 @@ export default {
   data() {
     return {
       products: products as Product[],
+      slides: [] as Product[][],
+      activeSlide: 0
     }
+  },
+  methods: {
+    createSlides() {
+      const totalSlides = Math.ceil(this.preparedProducts.length / 4)
+      for (let i = 0; i < totalSlides; i++) {
+        this.slides.push(this.preparedProducts.slice(i * 4, i * 4 + 4))
+      }
+      return this.slides
+    },
+    moveForward() {
+      if (this.activeSlide < this.slides.length - 1) {
+        this.activeSlide++
+      } else {
+        this.activeSlide = 0
+      }
+    },
+    moveBack() {
+      if (this.activeSlide > 0) {
+        this.activeSlide--
+      } else {
+        this.activeSlide = this.slides.length - 1
+      }
+    }
+  },
+  mounted() {
+    this.slides = this.createSlides()
   },
   computed: {
     preparedProducts(): Product[] {
-      const sorted = this.products
-        .slice()
-        .sort((a: Product, b: Product) => {
-          if (a.salePrice && !b.salePrice) {
-          return -1;
+      const sorted = this.products.slice().sort((a: Product, b: Product) => {
+        if (a.salePrice && !b.salePrice) {
+          return -1
         } else if (!a.salePrice && b.salePrice) {
-          return 1;
+          return 1
         } else {
           if (a.isInStock && !b.isInStock) {
-            return -1;
+            return -1
           } else if (!a.isInStock && b.isInStock) {
-            return 1;
+            return 1
           } else {
-            return 0;
+            return 0
           }
         }
-      });
-      
+      })
+
       window.console.log(products)
-      
-      return sorted as Product[];
+
+      return sorted as Product[]
     }
   }
 }
@@ -48,23 +74,29 @@ export default {
       <h1>Найчастіше купують</h1>
 
       <div class="slider__buttons">
-        <button class="slider__button">
-          <div class="slider__icon slider__icon--left"></div>
+        <button class="slider__button" @click="moveBack">
+          <div class="slider__icon slider__icon--left">{{ '<' }}</div>
         </button>
 
-        <button class="slider__button">
-          <div class="slider__icon slider__icon--right"></div>
+        <button class="slider__button" @click="moveForward">
+          <div class="slider__icon slider__icon--right">{{ '>' }}</div>
         </button>
       </div>
     </div>
-    <div>
-      <ul class="slider__list">
-        <li v-for="product in preparedProducts" :key="product.id">
-          <SliderCardVue :product="product" />
-        </li>
-      </ul>
-      <!-- <SliderCardVue />
-      <SliderCardVue /> -->
+    <div class="container">
+      <div class="slider__slides" ref="slides">
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="slider__slide"
+          :class="{ 'slider__slide--active': activeSlide === index }"
+          :style="{ transform: `translateX(calc(-${activeSlide} * (100% + 8px)))` }"
+        >
+          <div class="slider__item" v-for="product in slide" :key="product.id">
+            <SliderCardVue :product="product" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,81 +104,3 @@ export default {
 <style lang="scss">
 @import './AppSlider.scss';
 </style>
-
-<!-- <template>
-  <div class="slider">
-    <div class="slides">
-      <div class="slide" v-for="(image, index) in images" :key="index" :style="{ transform: 'translateX(' + offset + '%)' }">
-        <img :src="image" alt="Slider Image" />
-      </div>
-    </div>
-    <div class="controls">
-      <button @click="prev" :disabled="currentIndex === 0">Prev</button>
-      <button @click="next" :disabled="currentIndex === images.length - 1">Next</button>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-export default {
-  data() {
-    return {
-      images: [
-        'https://picsum.photos/id/237/200/300',
-        'https://picsum.photos/id/238/200/300',
-        'https://picsum.photos/id/239/200/300',
-      ],
-      currentIndex: 0,
-      offset: 0,
-    };
-  },
-  methods: {
-    prev() {
-      if (this.currentIndex > 0) {
-        this.currentIndex--;
-        this.offset += 100;
-      }
-    },
-    next() {
-      if (this.currentIndex < this.images.length - 1) {
-        this.currentIndex++;
-        this.offset -= 100;
-      }
-    },
-  },
-};
-</script>
-
-<style scoped>
-.slider {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 300%;
-  height: 100%;
-  display: flex;
-}
-
-.slide {
-  flex: 1;
-  transition: all 0.5s;
-}
-
-.controls {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-button {
-  margin: 0 10px;
-}
-</style> -->

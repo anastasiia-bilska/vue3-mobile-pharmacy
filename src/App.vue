@@ -12,7 +12,7 @@ export default {
 
 <template>
   <AppHeader />
-  <main class="container">
+  <main>
     <AppSlider />
   </main>
   <AppFooter />
