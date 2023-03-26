@@ -107,14 +107,21 @@
     background-repeat: no-repeat;
 
     // &--search {
-      width: 44px;
-      height: 42px;
-      background-image: url('../../assets/static/SliderCard/cart-icon.svg');
+    width: 44px;
+    height: 42px;
 
-      @include onBigger {
-        width: 32px;
-        height: 32px;
-      }
+    @include onBigger {
+      width: 32px;
+      height: 32px;
+    }
+
+    &--remove {
+      background-image: url('../../assets/static/SliderCard/cart-icon-active.svg');
+    }
+
+    &--add {
+      background-image: url('../../assets/static/SliderCard/cart-icon.svg');
+    }
     // }
   }
 
@@ -123,6 +130,4 @@
     justify-content: space-between;
     margin-bottom: 8px;
   }
-
-  
 }

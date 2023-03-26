@@ -61,13 +61,15 @@ export default {
           </p>
         </div>
 
-        <button v-if="!isInLocalStorage" class="card__to-cart-button" @click="addToCart(product)">
-          <div class="card__cart-icon card__cart-icon--add"></div>
-        </button>
+        <div v-show="product.isInStock">
+          <button v-if="!isInLocalStorage" class="card__to-cart-button" @click="addToCart(product)">
+            <div class="card__cart-icon card__cart-icon--add"></div>
+          </button>
 
-        <button v-else class="card__to-cart-button" @click="removeFromCart(product)">
-          <div class="card__cart-icon card__cart-icon--remove"></div>
-        </button>
+          <button v-else class="card__to-cart-button" @click="removeFromCart(product)">
+            <div class="card__cart-icon card__cart-icon--remove"></div>
+          </button>
+        </div>
       </div>
 
       <p

@@ -1,0 +1,55 @@
+@import '../../assets/sassStyles/mixins';
+@import '../../assets/sassStyles/colors';
+
+.navigation {
+  display: flex;
+  // width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 46px;
+  border-radius: 60px;
+
+  background-color: $color__main;
+  box-shadow: 0px 4px 15px rgba(22, 25, 31, 0.1);
+
+  @include onBigger {
+    height: 60px;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    color: $color__primary;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 120%;
+  }
+
+  &__separator {
+    position: absolute;
+    border-left: 1px solid $color__search;
+    height: 40px;
+  }
+
+  &__icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 28px;
+
+    &--catalog {
+      background-image: url('../../assets/static/AppNavigation/catalog-icon.svg');
+    }
+
+    &--me {
+      background-image: url('../../assets/static/AppNavigation/me-icon.svg');
+    }
+  }
+}
+
+.container__navigation {
+  position: relative;
+}

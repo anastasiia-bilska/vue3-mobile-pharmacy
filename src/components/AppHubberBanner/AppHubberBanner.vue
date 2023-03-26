@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'HubberBanner'
+  name: 'AppHubberBanner',
 }
 </script>
 
@@ -26,5 +26,5 @@ export default {
 </template>
 
 <style lang="scss">
-@import './HubberBanner.scss';
+@import './AppHubberBanner.scss';
 </style>
