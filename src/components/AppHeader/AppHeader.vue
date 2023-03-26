@@ -1,10 +1,10 @@
 <script lang="ts">
-import { useShoppingCartStore } from '@/stores/cart';
+import { useShoppingCartStore } from '@/stores/cart'
 
 export default {
   name: 'AppHeader',
   setup() {
-    const cartStore = useShoppingCartStore();
+    const cartStore = useShoppingCartStore()
     return { cartStore }
   }
 }
@@ -26,11 +26,17 @@ export default {
       </button>
     </form>
 
-    <button type="button" class="header__cart-button" aria-label="Натисніть, щоб відкрити кошик">
-      <div class="header__icon header__icon--cart">
+    <router-link
+      type="button"
+      class="header__cart-button"
+      aria-label="Натисніть, щоб відкрити кошик"
+      to="/cart"
+    >
+      <div class="header__icon header__icon--cart"></div>
+      <div v-show="cartStore.items.length" class="header__cart-counter">
+        {{ cartStore.items.length }}
       </div>
-      <div v-show="cartStore.items.length" class="header__cart-counter">{{ cartStore.items.length }}</div>
-    </button>
+    </router-link>
   </header>
 </template>
 

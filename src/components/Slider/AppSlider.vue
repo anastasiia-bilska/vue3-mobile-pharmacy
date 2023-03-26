@@ -18,10 +18,18 @@ export default {
   },
   methods: {
     createSlides() {
-      const totalSlides = Math.ceil(this.preparedProducts.length / 4)
-      for (let i = 0; i < totalSlides; i++) {
-        this.slides.push(this.preparedProducts.slice(i * 4, i * 4 + 4))
+      let itemsPerSlide = 2
+      if (window.innerHeight >= 760) {
+        itemsPerSlide = 4
       }
+
+      const totalSlides = Math.ceil(this.preparedProducts.length / itemsPerSlide)
+      for (let i = 0; i < totalSlides; i++) {
+        this.slides.push(
+          this.preparedProducts.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide)
+        )
+      }
+
       return this.slides
     },
     moveForward() {
@@ -39,7 +47,7 @@ export default {
       }
     },
     changeSlide(wantedSlide: number) {
-      this.activeSlide = wantedSlide;
+      this.activeSlide = wantedSlide
     }
   },
   mounted() {
@@ -63,9 +71,10 @@ export default {
         }
       })
 
-      window.console.log(products)
-
       return sorted as Product[]
+    },
+    slideMargin() {
+      return window.innerHeight >= 741 ? '16px' : '8px'
     }
   }
 }
@@ -93,8 +102,10 @@ export default {
           v-for="(slide, index) in slides"
           :key="index"
           class="slider__slide"
-          :class="{ 'slider__slide--active': activeSlide === index }"
-          :style="{ transform: `translateX(calc(-${activeSlide} * (100% + 16px)))` }"
+          :class="{
+            'slider__slide--active': activeSlide === index
+          }"
+          :style="{ transform: `translateX(calc(-${activeSlide} * (100% + ${slideMargin})))` }"
         >
           <div class="slider__item" v-for="product in slide" :key="product.id">
             <SliderCardVue :product="product" />
@@ -105,12 +116,12 @@ export default {
 
     <div class="slider__dots">
       <button
-        v-for="(slide, index) in slides" :key="index"
+        v-for="(slide, index) in slides"
+        :key="index"
         class="slider__dot"
-        :class="{'slider__dot--active': index === activeSlide }"
+        :class="{ 'slider__dot--active': index === activeSlide }"
         @click="changeSlide(index)"
-      >
-      </button>
+      ></button>
     </div>
   </div>
 </template>
