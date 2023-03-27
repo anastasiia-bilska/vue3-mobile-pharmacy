@@ -6,6 +6,17 @@ export const useShoppingCartStore = defineStore({
   state: () => ({
     items: [] as Product[]
   }),
+  getters: {
+    itemsByProducer(): Record<string, Product[]> {
+      return this.items.reduce((result: Record<string, Product[]>, product) => {
+        if (!result[product.producer]) {
+          result[product.producer] = []
+        }
+        result[product.producer].push(product)
+        return result
+      }, {})
+    }
+  },
   actions: {
     addItem(item: Product) {
       this.items.push(item)
@@ -15,6 +26,9 @@ export const useShoppingCartStore = defineStore({
       if (index !== -1) {
         this.items.splice(index, 1)
       }
+    },
+    clearCart() {
+      this.items = []
     }
   }
 })

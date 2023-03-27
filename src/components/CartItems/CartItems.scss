@@ -1,0 +1,87 @@
+@import '../../assets/sassStyles/colors';
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  &__group {
+    // padding: 16px 24px;
+    background-color: $color__main;
+    box-shadow: 0px 4px 15px rgba(22, 25, 31, 0.1);
+    border-radius: 24px;
+  }
+
+  &__group-title {
+    padding: 16px 24px;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 120%;
+    color: $color__primary;
+    width: 100%;
+    border-bottom: 1px solid $color__input;
+  }
+
+  &__producer {
+    color: $color__background;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color__input;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+
+    color: $color__primary;
+  }
+
+  &__item-img {
+    height: 50px;
+    width: 60px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 1px solid $color__input;
+    border-radius: 8px;
+  }
+
+  &__item-details {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: $color__primary;
+  }
+
+  &__item-price {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 120%;
+  }
+
+  &__item-uan {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+  }
+
+  &__item-amount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: $color__secondary;
+  }
+}

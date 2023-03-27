@@ -1,4 +1,20 @@
+@import '../../assets/sassStyles/colors';
+
 .cart-form {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 120%;
+    color: $color__primary;
+  }
+
   &__contacts {
     display: flex;
     flex-direction: column;
@@ -7,5 +23,50 @@
 
   &__label {
     display: block;
+    margin-bottom: 8px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 140%;
+    color: $color__primary;
+  }
+
+  &__req {
+    color: $color__accent;
+  }
+
+  &__input {
+    padding: 0 16px;
+    height: 45px;
+    width: 100%;
+    border: 1px solid $color__input;
+    border-radius: 8px;
+    outline: none;
+    color: $color__primary;
+
+    &--text-area {
+      min-height: 120px;
+      font-family:'Nunito Sans', sans-serif;
+      padding: 12px 16px;
+      
+      &::placeholder {
+        color: $color__secondary;
+      }
+    }
+
+    transition: border 0.2s ease-in-out;
+
+    &--error {
+      border: 1px solid $color__accent;
+    }
+
+    &:focus {
+      border: 2px solid $color__background;
+    }
+
+    &::placeholder {
+      color: $color__secondary;
+      font-family: 'Nunito Sans', sans-serif;
+    }
   }
 }

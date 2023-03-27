@@ -1,0 +1,46 @@
+@import '../../assets/sassStyles/colors';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 16px;
+  background-color: $color__main;
+  box-shadow: 0px -4px 15px rgba(22, 25, 31, 0.1);
+
+  &__to-pay {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    color: $color__primary;
+  }
+
+  &__sum {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 120%;
+    color: $color__primary;
+  }
+
+  &__ua {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 120%;
+    color: $color__primary;
+  }
+
+  &__amount {margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  &__button {
+    width: 100%;
+    border-radius: 32px;
+    padding: 14px 0;
+    background-color: $color__background;
+    color: $color__main;
+  }
+}
