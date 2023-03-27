@@ -70,14 +70,16 @@
     width: 100%;
   }
 
-  &__text, &__list-item {
+  &__text,
+  &__list-item {
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
-    color: $color__primary
+    color: $color__primary;
   }
 
-  &__text, &__list {
+  &__text,
+  &__list {
     margin-bottom: 8px;
   }
 
@@ -93,6 +95,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 140%;
-    color: $color__background
-  };
+    color: $color__background;
+  }
 }
