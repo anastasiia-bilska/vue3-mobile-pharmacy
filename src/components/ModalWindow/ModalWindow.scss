@@ -19,7 +19,7 @@
 .modal {
   padding: 24px 16px;
   background: $color__main;
-  max-width: 90%;
+  width: 90%;
   max-height: 90%;
   overflow-y: auto;
   box-shadow: 0px 4px 15px rgba(22, 25, 31, 0.1);
@@ -59,6 +59,15 @@
     display: block;
     margin: 0 auto 16px;
     height: 46px;
+  }
+
+  &__nav {
+    text-align: center;
+    color: $color__positive;
+    font-weight: 800;
+    font-size: 25px;
+    margin-bottom: 16px;
+    width: 100%;
   }
 
   &__text, &__list-item {

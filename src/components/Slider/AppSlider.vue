@@ -4,6 +4,10 @@ import products from '../../assets/api/products.json';
 
 import type { Product } from '../../types/Product';
 
+interface Refs {
+  slides: HTMLElement;
+}
+
 export default {
   name: 'AppSlider',
   components: {
@@ -52,6 +56,26 @@ export default {
   },
   mounted() {
     this.slides = this.createSlides();
+
+    const options = {
+      threshold: 0.5
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt(entry.target.getAttribute('data-index') || '0');
+
+        if (entry.isIntersecting) {
+          this.activeSlide = index;
+        }
+      });
+    }, options);
+
+    (this.$refs.slides as Refs['slides'])
+      .querySelectorAll('.slider__slide')
+      .forEach((slide, index) => {
+        slide.setAttribute('data-index', index.toString());
+        observer.observe(slide);
+      });
   },
   computed: {
     preparedProducts(): Product[] {

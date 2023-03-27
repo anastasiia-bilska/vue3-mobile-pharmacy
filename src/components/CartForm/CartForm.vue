@@ -100,7 +100,7 @@ export default defineComponent({
             id="surname"
             type="input"
             placeholder="Введіть ваше прізвище"
-            pattern="?[А-Яа-яІіЇїЄєҐґ]+(-[А-Яа-яІіЇїЄєҐґ]+)"
+            pattern="[А-Яа-яІіЇїЄєҐґ]+(-[А-Яа-яІіЇїЄєҐґ]+)?"
             required
           />
         </li>
