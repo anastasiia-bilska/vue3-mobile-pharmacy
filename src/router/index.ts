@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 import HomePage from '../pages/HomePage.vue';
 import CartPage from '../pages/CartPage.vue';
 
@@ -16,6 +16,6 @@ const router = createRouter({
       component: CartPage
     }
   ]
-})
+});
 
-export default router
+export default router;

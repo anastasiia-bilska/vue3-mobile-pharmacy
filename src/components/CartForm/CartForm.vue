@@ -1,9 +1,10 @@
 <script lang="ts">
-import router from '@/router'
-import { useShoppingCartStore } from '@/stores/cart'
-import CartModal from '../CartModal/CartModal.vue'
+import router from '@/router';
+import { useShoppingCartStore } from '@/stores/cart';
+import { defineComponent } from 'vue';
+import CartModal from '../ModalWindow/ModalWindow.vue';
 
-export default {
+export default defineComponent({
   name: 'CartForm',
   data() {
     return {
@@ -12,38 +13,38 @@ export default {
       hasErrorTel: false,
       errorMessages: [] as String[],
       isModalVisible: false
-    }
+    };
   },
   methods: {
     handleSubmit(event: Event) {
-      event.preventDefault()
-      this.errorMessages = []
-      this.hasErrorName = false
-      this.hasErrorSurname = false
-      this.hasErrorTel = false
+      event.preventDefault();
+      this.errorMessages = [];
+      this.hasErrorName = false;
+      this.hasErrorSurname = false;
+      this.hasErrorTel = false;
 
-      const nameInput = document.getElementById('name') as HTMLInputElement
-      const surnameInput = document.getElementById('surname') as HTMLInputElement
-      const telInput = document.getElementById('tel') as HTMLInputElement
+      const nameInput = document.getElementById('name') as HTMLInputElement;
+      const surnameInput = document.getElementById('surname') as HTMLInputElement;
+      const telInput = document.getElementById('tel') as HTMLInputElement;
 
       if (!nameInput.checkValidity()) {
-        this.errorMessages = [...this.errorMessages, 'Ім’я має містити лише кирилицю']
-        this.hasErrorName = true
+        this.errorMessages = [...this.errorMessages, 'Ім’я має містити лише кирилицю'];
+        this.hasErrorName = true;
       }
       if (!surnameInput.checkValidity()) {
-        this.errorMessages = [...this.errorMessages, 'Прізвище має містити лише кирилицю']
-        this.hasErrorSurname = true
+        this.errorMessages = [...this.errorMessages, 'Прізвище має містити лише кирилицю'];
+        this.hasErrorSurname = true;
       }
       if (!telInput.checkValidity()) {
         this.errorMessages = [
           ...this.errorMessages,
           'Номер телефону повинен бути у форматі 0XXYYYYYYY або +38XXYYYYYYY'
-        ]
-        this.hasErrorTel = true
+        ];
+        this.hasErrorTel = true;
       }
 
       if (this.errorMessages.length) {
-        this.showModal()
+        this.showModal();
       } else {
         const cart = useShoppingCartStore();
         cart.clearCart();
@@ -51,16 +52,16 @@ export default {
       }
     },
     showModal() {
-      this.isModalVisible = true
+      this.isModalVisible = true;
     },
     hideModal() {
-      this.isModalVisible = false
+      this.isModalVisible = false;
     }
   },
   components: {
     CartModal
   }
-}
+});
 </script>
 
 <template>
@@ -126,12 +127,26 @@ export default {
 
         <li>
           <label class="cart-form__label" for="text-cart">Email</label>
-          <textarea class="cart-form__input cart-form__input--text-area" name="comments" id="text-cart" cols="30" rows="10" placeholder="Напишіть свій коментар до замовлення"></textarea>
+          <textarea
+            class="cart-form__input cart-form__input--text-area"
+            name="comments"
+            id="text-cart"
+            cols="30"
+            rows="10"
+            placeholder="Напишіть свій коментар до замовлення"
+          ></textarea>
         </li>
       </ul>
     </form>
 
-    <CartModal v-if="isModalVisible" :errorMessages="errorMessages" @close="hideModal" />
+    <CartModal v-if="isModalVisible" :errorMessages="errorMessages" @close="hideModal">
+      <h3 class="modal__title">Перевірте заповнені поля</h3>
+      <h4 class="modal__subtitle">Будь ласка, зауважте, що:</h4>
+      <div class="modal__messages">
+        <p v-for="(message, index) in errorMessages" :key="index">{{ message }}</p>
+      </div>
+      <button @click="hideModal" class="modal__close">Закрити</button>
+    </CartModal>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 import CartFooter from '@/components/CartFooter/CartFooter.vue';
-import CartForm from '@/components/CartForm/CartForm.vue'
-import CartHeader from '@/components/CartHeader/CartHeader.vue'
+import CartForm from '@/components/CartForm/CartForm.vue';
+import CartHeader from '@/components/CartHeader/CartHeader.vue';
 import CartItems from '@/components/CartItems/CartItems.vue';
 
 export default {
@@ -10,8 +10,8 @@ export default {
     CartHeader,
     CartItems,
     CartFooter
-}
-}
+  }
+};
 </script>
 
 <template>
@@ -19,20 +19,20 @@ export default {
     <CartHeader />
     <div class="container cart-bage__body">
       <div class="cart-page__content">
-      <router-link
-        class="cart-page__back"
-        to="/"
-        aria-label="натисніть, щоб повернутися на домашню сторінку"
-      >
-        <div class="cart-page__back-icon"></div>
-        Кошик
-      </router-link>
+        <router-link
+          class="cart-page__back"
+          to="/"
+          aria-label="натисніть, щоб повернутися на домашню сторінку"
+        >
+          <div class="cart-page__back-icon"></div>
+          Кошик
+        </router-link>
 
-      <h1 class="cart-page__title">Оформлення замовлення</h1>
+        <h1 class="cart-page__title">Оформлення замовлення</h1>
 
-      <CartForm />
-      <CartItems />
-      <CartFooter />
+        <CartForm />
+        <CartItems />
+        <CartFooter />
       </div>
     </div>
   </div>
@@ -81,11 +81,10 @@ export default {
     position: relative;
     min-height: calc(100vh + 160px);
     // margin-bottom: 140px;
-  } 
-  
+  }
+
   &__content {
     padding-bottom: 180px;
-
   }
 }
 </style>

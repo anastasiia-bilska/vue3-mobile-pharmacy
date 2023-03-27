@@ -54,4 +54,36 @@
   &__subtitle {
     margin-bottom: 16px;
   }
+
+  &__logo {
+    display: block;
+    margin: 0 auto 16px;
+    height: 46px;
+  }
+
+  &__text, &__list-item {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $color__primary
+  }
+
+  &__text, &__list {
+    margin-bottom: 8px;
+  }
+
+  &__text--last {
+    margin-bottom: 24px;
+  }
+
+  &__list-item {
+    list-style: inside;
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: $color__background
+  };
 }

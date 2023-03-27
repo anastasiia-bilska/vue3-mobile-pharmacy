@@ -1,8 +1,8 @@
 <script lang="ts">
-import SliderCardVue from '../Card/SliderCard.vue'
-import products from '../../assets/api/products.json'
+import SliderCardVue from '../Card/SliderCard.vue';
+import products from '../../assets/api/products.json';
 
-import type { Product } from '../../types/Product'
+import type { Product } from '../../types/Product';
 
 export default {
   name: 'AppSlider',
@@ -14,70 +14,70 @@ export default {
       products: products as Product[],
       slides: [] as Product[][],
       activeSlide: 0
-    }
+    };
   },
   methods: {
     createSlides() {
-      let itemsPerSlide = 2
+      let itemsPerSlide = 2;
       if (window.innerHeight >= 760) {
-        itemsPerSlide = 4
+        itemsPerSlide = 4;
       }
 
-      const totalSlides = Math.ceil(this.preparedProducts.length / itemsPerSlide)
+      const totalSlides = Math.ceil(this.preparedProducts.length / itemsPerSlide);
       for (let i = 0; i < totalSlides; i++) {
         this.slides.push(
           this.preparedProducts.slice(i * itemsPerSlide, i * itemsPerSlide + itemsPerSlide)
-        )
+        );
       }
 
-      return this.slides
+      return this.slides;
     },
     moveForward() {
       if (this.activeSlide < this.slides.length - 1) {
-        this.activeSlide++
+        this.activeSlide++;
       } else {
-        this.activeSlide = 0
+        this.activeSlide = 0;
       }
     },
     moveBack() {
       if (this.activeSlide > 0) {
-        this.activeSlide--
+        this.activeSlide--;
       } else {
-        this.activeSlide = this.slides.length - 1
+        this.activeSlide = this.slides.length - 1;
       }
     },
     changeSlide(wantedSlide: number) {
-      this.activeSlide = wantedSlide
+      this.activeSlide = wantedSlide;
     }
   },
   mounted() {
-    this.slides = this.createSlides()
+    this.slides = this.createSlides();
   },
   computed: {
     preparedProducts(): Product[] {
       const sorted = this.products.slice().sort((a: Product, b: Product) => {
         if (a.salePrice && !b.salePrice) {
-          return -1
+          return -1;
         } else if (!a.salePrice && b.salePrice) {
-          return 1
+          return 1;
         } else {
           if (a.isInStock && !b.isInStock) {
-            return -1
+            return -1;
           } else if (!a.isInStock && b.isInStock) {
-            return 1
+            return 1;
           } else {
-            return 0
+            return 0;
           }
         }
-      })
+      });
 
-      return sorted as Product[]
+      return sorted as Product[];
     },
     slideMargin() {
-      return window.innerHeight >= 741 ? '16px' : '8px'
+      return window.innerHeight >= 741 ? '16px' : '8px';
     }
   }
-}
+};
 </script>
 
 <template>

@@ -1,8 +1,9 @@
 <script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
-  name: 'CartHeader',
-}
+export default defineComponent({
+  name: 'CartHeader'
+});
 </script>
 
 <template>

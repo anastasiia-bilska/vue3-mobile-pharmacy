@@ -1,8 +1,8 @@
 <script lang="ts">
-import AppHeader from '@/components/AppHeader/AppHeader.vue'
-import AppHubberBanner from '@/components/AppHubberBanner/AppHubberBanner.vue'
-import AppNavigation from '@/components/AppNavigation/AppNavigation.vue'
-import AppSlider from '@/components/Slider/AppSlider.vue'
+import AppHeader from '@/components/AppHeader/AppHeader.vue';
+import AppHubberBanner from '@/components/AppHubberBanner/AppHubberBanner.vue';
+import AppNavigation from '@/components/AppNavigation/AppNavigation.vue';
+import AppSlider from '@/components/Slider/AppSlider.vue';
 
 export default {
   name: 'HomePage',
@@ -12,7 +12,7 @@ export default {
     AppHubberBanner,
     AppNavigation
   }
-}
+};
 </script>
 
 <template>

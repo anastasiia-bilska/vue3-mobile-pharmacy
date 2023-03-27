@@ -1,13 +1,13 @@
 <script lang="ts">
-import { useShoppingCartStore } from '@/stores/cart'
+import { useShoppingCartStore } from '@/stores/cart';
 
 export default {
   name: 'AppHeader',
   setup() {
-    const cartStore = useShoppingCartStore()
-    return { cartStore }
+    const cartStore = useShoppingCartStore();
+    return { cartStore };
   }
-}
+};
 </script>
 
 <template>
