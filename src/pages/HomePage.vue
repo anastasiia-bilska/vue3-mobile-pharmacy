@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss">
 .home-page {
-  background-image: url('src/assets/static/background.jpg');
+  background-image: url('../assets/static/background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

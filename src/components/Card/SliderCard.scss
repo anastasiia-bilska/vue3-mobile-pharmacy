@@ -16,7 +16,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: 100%;
     height: 100%;
   }
 
@@ -44,7 +43,6 @@
   &__title {
     margin-bottom: 8px;
     display: -webkit-box;
-    // max-height: 66px;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow-x: hidden;
@@ -119,7 +117,6 @@
     background-position: center;
     background-repeat: no-repeat;
 
-    // &--search {
     width: 44px;
     height: 42px;
 
@@ -135,7 +132,6 @@
     &--add {
       background-image: url('../../assets/static/SliderCard/cart-icon.svg');
     }
-    // }
   }
 
   &__purchase {

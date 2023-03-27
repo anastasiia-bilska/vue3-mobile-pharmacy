@@ -73,14 +73,12 @@ export default {
     font-weight: 800;
     font-size: 24px;
     line-height: 120%;
-    // text-align: center;
     color: $color__primary;
   }
 
   &__body {
     position: relative;
     min-height: calc(100vh + 160px);
-    // margin-bottom: 140px;
   }
 
   &__content {
