@@ -17,12 +17,14 @@ export default {
 
 <template>
   <div class="home-page">
+    <div class="page__wrapper--home">
     <AppHeader />
-    <main>
+    <main class="page__main">
       <AppSlider />
       <AppHubberBanner />
-      <AppNavigation />
     </main>
+    <AppNavigation />
+  </div>
   </div>
 </template>
 

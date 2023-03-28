@@ -12,7 +12,7 @@ export default {
 
 <template>
   <header class="header page__header">
-    <img src="../../assets/static/logo.svg" alt="Логотип компанії Хапай" class="header__logo" />
+    <img src="../../assets/static/logo.png" alt="Логотип компанії Хапай" class="header__logo" />
 
     <form class="header__form">
       <input class="header__search-bar" type="text" placeholder="Пошук" />
@@ -33,7 +33,11 @@ export default {
       to="/cart"
     >
       <div class="header__icon header__icon--cart"></div>
-      <div v-show="cartStore.items.length" class="header__cart-counter">
+      <div
+        v-show="cartStore.items.length"
+        class="header__cart-counter"
+        :class="{'header__cart-counter--big': cartStore.items.length > 9}"
+      >
         {{ cartStore.items.length }}
       </div>
     </router-link>

@@ -5,15 +5,33 @@
   // background-size: cover;
   // background-position: center;
   // background-repeat: no-repeat;
-  // height: 100vh;
-  // width: 100%;
+  // .wrapper {
+    // min-height: 100%;
+    // display: grid;
+    // grid-template-rows: auto 1fr auto;
+// }
+  // min-height: 589px;
+
+  &__wrapper--home {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__main {
+    flex-grow: 1;
+  }
 
   &__header {
     margin-bottom: 32px;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
   &__cart-header {
     margin-bottom: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
   &__slider {
@@ -25,10 +43,12 @@
   }
 
   &__navigation {
-    position: fixed;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    // position: fixed;
+    // bottom: 16px;
+    // left: 16px;
+    // right: 16px;
   }
 
   &__cart-form {

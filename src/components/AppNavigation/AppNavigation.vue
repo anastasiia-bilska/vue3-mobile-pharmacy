@@ -34,7 +34,7 @@ export default {
       <div class="navigation__separator"></div>
     </nav>
     <ModalWindow v-show="isModalOpen">
-      <img class="modal__logo" src="../../assets/static/logo.svg" alt="Логотип компанії 'Хапай'" />
+      <img class="modal__logo" src="../../assets/static/logo.png" alt="Логотип компанії 'Хапай'" />
       <p class="modal__text">
         Соцмережа постачальників та покупців для покупки товарів та обміну відгуками:
       </p>

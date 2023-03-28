@@ -1,4 +1,9 @@
 @import '../../assets/sassStyles/colors';
+$input__search-button-p-left: 16px;
+$input__search-button-p-right: 5px;
+$input__search-button-size: 22px;
+
+$input__padding-left: $input__search-button-p-left + $input__search-button-p-right + $input__search-button-size;
 
 .header {
   display: flex;
@@ -24,7 +29,7 @@
   }
 
   &__search-bar {
-    padding-left: 16px;
+    padding: 0 $input__padding-left 0 16px;
     min-width: 60px;
     width: 100%;
     max-width: 160px;
@@ -102,5 +107,10 @@
     background: $color__info;
     border: 2px solid $color__main;
     border-radius: 10px;
+
+    &--big {
+      font-size: 9px;
+      font-weight: 800;
+    }
   }
 }

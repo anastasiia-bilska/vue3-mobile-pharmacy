@@ -2,6 +2,8 @@
 @import '../../assets/sassStyles/mixins';
 
 .hubber {
+  margin-bottom: 12px;
+  position: relative;
   display: flex;
   align-items: center;
   background-color: $color__main;

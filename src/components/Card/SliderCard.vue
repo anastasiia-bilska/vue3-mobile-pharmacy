@@ -81,7 +81,9 @@ export default {
             </button>
 
             <button v-else class="card__to-cart-button" @click="removeFromCart(product)">
-              <div class="card__cart-icon card__cart-icon--remove"></div>
+              <div class="card__cart-icon card__cart-icon--remove">
+                <div class="card__cart-icon--remove-ok"></div>
+              </div>
             </button>
           </div>
         </div>
