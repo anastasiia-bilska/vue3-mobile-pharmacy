@@ -3,6 +3,7 @@ import CartFooter from '@/components/CartFooter/CartFooter.vue';
 import CartForm from '@/components/CartForm/CartForm.vue';
 import CartHeader from '@/components/CartHeader/CartHeader.vue';
 import CartItems from '@/components/CartItems/CartItems.vue';
+import { useShoppingCartStore } from '@/stores/cart';
 
 export default {
   components: {
@@ -10,6 +11,13 @@ export default {
     CartHeader,
     CartItems,
     CartFooter
+  },
+  computed: {
+    hasItems() {
+      const cart = useShoppingCartStore();
+
+      return cart.items.length;
+    }
   }
 };
 </script>
@@ -27,12 +35,14 @@ export default {
           <div class="cart-page__back-icon"></div>
           Кошик
         </router-link>
+        <div v-if="hasItems">
+          <h1 class="cart-page__title">Оформлення замовлення</h1>
 
-        <h1 class="cart-page__title">Оформлення замовлення</h1>
-
-        <CartForm />
-        <CartItems />
-        <CartFooter />
+          <CartForm />
+          <CartItems />
+          <CartFooter />
+        </div>
+        <h1 v-else class="cart-page__title">Кошик порожній</h1>
       </div>
     </div>
   </div>

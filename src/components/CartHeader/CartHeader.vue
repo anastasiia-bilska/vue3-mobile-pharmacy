@@ -8,7 +8,7 @@ export default defineComponent({
 
 <template>
   <header class="cart-header page__cart-header">
-    <img src="../../assets/static/logo.svg" alt="Логотип компанії Хапай" class="header__logo" />
+    <img src="../../assets/static/logo.png" alt="Логотип компанії Хапай" class="header__logo" />
   </header>
 </template>
 

@@ -7,7 +7,7 @@ import router from './router';
 import { shoppingCartStorage } from '@/storage/storage';
 import { useShoppingCartStore } from '@/stores/cart';
 
-import '../main.scss';
+import './main.scss';
 
 const app = createApp(App);
 

@@ -11,6 +11,7 @@ export default defineComponent({
       hasErrorName: false,
       hasErrorSurname: false,
       hasErrorTel: false,
+      hasErrorEmail: false,
       errorMessages: [] as String[],
       isModalVisible: false
     };
@@ -22,10 +23,12 @@ export default defineComponent({
       this.hasErrorName = false;
       this.hasErrorSurname = false;
       this.hasErrorTel = false;
+      this.hasErrorEmail = false;
 
       const nameInput = document.getElementById('name') as HTMLInputElement;
       const surnameInput = document.getElementById('surname') as HTMLInputElement;
       const telInput = document.getElementById('tel') as HTMLInputElement;
+      const emailInput = document.getElementById('email') as HTMLInputElement;
 
       if (!nameInput.checkValidity()) {
         this.errorMessages = [...this.errorMessages, 'Ім’я має містити лише кирилицю'];
@@ -41,6 +44,13 @@ export default defineComponent({
           'Номер телефону повинен бути у форматі 0XXYYYYYYY або +38XXYYYYYYY'
         ];
         this.hasErrorTel = true;
+      }
+      if (!emailInput.checkValidity() && emailInput.value.length) {
+        this.errorMessages = [
+          ...this.errorMessages,
+          'Email некоректний'
+        ];
+        this.hasErrorEmail = true;
       }
 
       if (this.errorMessages.length) {
@@ -85,7 +95,7 @@ export default defineComponent({
             id="name"
             type="input"
             placeholder="Введіть ваше ім’я"
-            pattern="[А-Яа-яІіЇїЄєҐґ]{2,20}"
+            pattern="\p{sc=Cyrillic}{2,20}"
             required
           />
         </li>
@@ -100,7 +110,7 @@ export default defineComponent({
             id="surname"
             type="input"
             placeholder="Введіть ваше прізвище"
-            pattern="[А-Яа-яІіЇїЄєҐґ]+(-[А-Яа-яІіЇїЄєҐґ]+)?"
+            pattern="(\p{sc=Cyrillic}{2,20})(-\p{sc=Cyrillic}{2,20})?"
             required
           />
         </li>
@@ -122,11 +132,17 @@ export default defineComponent({
 
         <li>
           <label class="cart-form__label" for="email">Email</label>
-          <input class="cart-form__input" id="email" type="email" placeholder="Введіть ваш email" />
+          <input
+            :class="{ 'cart-form__input--error': hasErrorEmail }"
+            class="cart-form__input"
+            id="email" type="email"
+            placeholder="Введіть ваш email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
         </li>
 
         <li>
-          <label class="cart-form__label" for="text-cart">Email</label>
+          <label class="cart-form__label" for="text-cart">Комeнтар</label>
           <textarea
             class="cart-form__input cart-form__input--text-area"
             name="comments"

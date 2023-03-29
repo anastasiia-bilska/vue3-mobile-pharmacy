@@ -30,6 +30,13 @@ export default defineComponent({
       }
     };
   },
+  methods: {
+    chunk(arr: any[], size: number) {
+      return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
+        arr.slice(i * size, i * size + size)
+      );
+    }
+  },
   computed: {
     slidesPerView() {
       const height = window.innerHeight;
@@ -45,14 +52,25 @@ export default defineComponent({
       }
       return 8;
     },
+    // preparedProducts(): Product[] {
+    //   const sorted = this.products.slice().sort((a: Product, b: Product) => {
+    //     if (a.salePrice && !b.salePrice) {
+    //       return -1;
+    //     } else if (!a.salePrice && b.salePrice) {
+    //       return 1;
+    //     } else {
+    //       if (a.isInStock && !b.isInStock) {
+    //         return -1;
+    //       } else if (!a.isInStock && b.isInStock) {
+    //         return 1;
+    //       } else {
+    //         return 0;
+    //       }
+    //     }
+    //   });
+    //   return sorted as Product[];
+    // },
     groupedProducts() {
-      if (window.innerHeight >= 800) {
-        return this.chunk(this.preparedProducts, 4);
-      } else {
-        return this.chunk(this.preparedProducts, 2);
-      }
-    },
-    preparedProducts(): Product[] {
       const sorted = this.products.slice().sort((a: Product, b: Product) => {
         if (a.salePrice && !b.salePrice) {
           return -1;
@@ -68,14 +86,12 @@ export default defineComponent({
           }
         }
       });
-      return sorted as Product[];
-    }
-  },
-  methods: {
-    chunk(arr: any[], size: number) {
-      return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) =>
-        arr.slice(i * size, i * size + size)
-      );
+
+      if (window.innerHeight >= 800) {
+        return this.chunk(sorted, 4);
+      } else {
+        return this.chunk(sorted, 2);
+      }
     }
   }
 });
@@ -121,7 +137,7 @@ export default defineComponent({
   }
 
   &__title {
-    top: 9px;
+    top: 10px;
     position: absolute;
     font-weight: 800;
     font-size: 18px;
@@ -132,20 +148,21 @@ export default defineComponent({
     @include onBigger {
       font-size: 20px;
     }
+
+    @media (max-width: 327px) {
+      font-size: 15px
+    }
   }
 
   &__grid {
     display: grid;
     gap: 8px;
     grid-template-columns: repeat(2, 1fr);
-    height: 280px;
     margin-bottom: 16px;
 
     @include onBigger {
       gap: 16px;
       grid-template-rows: repeat(2, 1fr);
-
-      height: 500px;
     }
   }
 
