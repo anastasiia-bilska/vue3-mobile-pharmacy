@@ -52,24 +52,6 @@ export default defineComponent({
       }
       return 8;
     },
-    // preparedProducts(): Product[] {
-    //   const sorted = this.products.slice().sort((a: Product, b: Product) => {
-    //     if (a.salePrice && !b.salePrice) {
-    //       return -1;
-    //     } else if (!a.salePrice && b.salePrice) {
-    //       return 1;
-    //     } else {
-    //       if (a.isInStock && !b.isInStock) {
-    //         return -1;
-    //       } else if (!a.isInStock && b.isInStock) {
-    //         return 1;
-    //       } else {
-    //         return 0;
-    //       }
-    //     }
-    //   });
-    //   return sorted as Product[];
-    // },
     groupedProducts() {
       const sorted = this.products.slice().sort((a: Product, b: Product) => {
         if (a.salePrice && !b.salePrice) {
@@ -100,8 +82,6 @@ export default defineComponent({
 <template>
   <div class="container slider__container">
     <h1 class="slider__title">Найчастіше купують</h1>
-    <!-- <div class="swiper-button-prev">1</div>
-    <div class="swiper-button-next">2</div> -->
     <swiper
       :navigation="{
         nextEl: '.swiper-button-next',
@@ -129,59 +109,9 @@ export default defineComponent({
 </template>
 
 <style lang="scss">
+@import './AppSlider.scss';
 @import '../../assets/sassStyles/mixins';
 @import '../../assets/sassStyles/colors';
-.slider {
-  &__container {
-    position: relative;
-  }
-
-  &__title {
-    top: 10px;
-    position: absolute;
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 120%;
-    color: $color__primary;
-    // margin-bottom: 24px;
-
-    @include onBigger {
-      font-size: 20px;
-    }
-
-    @media (max-width: 327px) {
-      font-size: 15px
-    }
-  }
-
-  &__grid {
-    display: grid;
-    gap: 8px;
-    grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 16px;
-
-    @include onBigger {
-      gap: 16px;
-      grid-template-rows: repeat(2, 1fr);
-    }
-  }
-
-  &__icon {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 12px;
-    height: 12px;
-
-    &--left {
-      background-image: url('../../assets/static/AppSlider/icon-left.svg');
-    }
-
-    &--right {
-      background-image: url('../../assets/static/AppSlider/icon-right.svg');
-    }
-  }
-}
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -194,7 +124,6 @@ export default defineComponent({
   border-radius: 40px;
   opacity: 1;
   box-shadow: 0px 4px 15px rgba(22, 25, 31, 0.1);
-  // .swiper-button-prev.swiper-button-disabled
 }
 
 .swiper-button-prev {
@@ -243,15 +172,7 @@ export default defineComponent({
   background-color: $color__background;
 }
 
-// .slider {
-//   // height: 260px;
-
-//   @include onBigger {
-//     // min-height: 472px;
-//   }
-
 .swiper-pagination {
   position: static;
 }
-// }
 </style>

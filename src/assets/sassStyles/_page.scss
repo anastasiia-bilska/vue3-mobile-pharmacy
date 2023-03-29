@@ -1,17 +1,6 @@
 @import './mixins';
 
 .page {
-  // background-image: url('src/assets/static/background.jpg');
-  // background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // .wrapper {
-    // min-height: 100%;
-    // display: grid;
-    // grid-template-rows: auto 1fr auto;
-// }
-  // min-height: 589px;
-
   &__wrapper--home {
     min-height: 100%;
     display: flex;
@@ -45,10 +34,6 @@
   &__navigation {
     flex-grow: 0;
     flex-shrink: 0;
-    // position: fixed;
-    // bottom: 16px;
-    // left: 16px;
-    // right: 16px;
   }
 
   &__cart-form {
